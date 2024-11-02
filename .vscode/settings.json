@@ -1,0 +1,13 @@
+{
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.root": "/",
+  "liveServer.settings.browser": "chrome",
+  "liveServer.settings.open": false,
+  "liveServer.settings.cors": true,
+  // "liveServer.settings.proxy": {
+  //   "enable": true,
+  //   "baseUri": "http://localhost:8080",
+  //   "proxyUri": "/api"
+  // },
+  "liveServer.settings.ignore": ["**/*.scss", "**/*.sass"]
+}
