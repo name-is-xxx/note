@@ -4,17 +4,15 @@
 
 ## 前端服务
 
-### `npm start`
+### `pnpm init`
+
+加载依赖
+
+### `pnpm run start`
 
 开发模式查看，热更新
 本地网址[http://localhost:3000](http://localhost:3000)
 
-### `npm run build`
+### `pnpm run build`
 
 构建生产环境，并存储到 build 文件夹中
-
-## 后端服务
-
-### node server.js
-
-在 backend 文件夹下运行，启动后端服务
