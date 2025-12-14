@@ -19,9 +19,7 @@ function Test() {
         Ids.push(i + 1);
       }
     }
-    const promises = Ids.map((id) =>
-      Request("get", `http://localhost:8080/backend/note/${id}.json`, null)
-    );
+    const promises = Ids.map((id) => Request("get", `/note/${id}.json`, null));
     // 假设后端传来的数据有`lastUpdate`，即最后更新时间属性
     return Promise.all(promises).then((response) => {
       console.log(response);
@@ -72,17 +70,13 @@ function Test() {
       content: content[0].value,
       lastUpdate: Date.now().toString(),
     };
-    await Request(
-      "post",
-      `http://localhost:8080/backend/note/${id}`,
-      JSON.stringify(data)
-    );
+    await Request("post", `/note/${id}`, JSON.stringify(data));
     refresh();
   }
 
   async function del(id) {
     Ids.splice(id - 1, 1);
-    await Request("delete", `http://localhost:8080/backend/note/${id}`);
+    await Request("delete", `/note/${id}`);
     refresh();
   }
 
@@ -111,11 +105,7 @@ function Test() {
       content: content[0].value,
       lastUpdate: Date.now().toString(),
     };
-    await Request(
-      "put",
-      `http://localhost:8080/backend/note/${isSwitch}`,
-      JSON.stringify(data)
-    );
+    await Request("put", `/note/${isSwitch}`, JSON.stringify(data));
     setIsSwitch(false);
     refresh();
   }

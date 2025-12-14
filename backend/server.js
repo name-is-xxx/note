@@ -77,7 +77,24 @@ app.delete("/backend/note/:id", (req, res) => {
   }
 });
 
+// find available port
+function findPort(port) {
+  app
+    .listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    })
+    .on("error", (err) => {
+      if (err.code === "EADDRINUSE") {
+        console.log(`Port ${port} is in use, trying next one.`);
+        findPort(port + 1);
+      } else {
+        throw err;
+      }
+    });
+}
+
 // 启动服务器
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+findPort(port);
+// app.listen(port, () => {
+//   console.log(`Server running on port ${port}`);
+// });

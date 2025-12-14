@@ -1,12 +1,14 @@
 export function Request(way, url, data) {
   const timeout = 3000;
+  const port = 8080;
+  const newUrl = "http://localhost:" + port + "/backend" + url;
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
     setTimeout(() => {
       request.abort();
       reject(new Error("Request timed out"));
     }, timeout);
-    request.open(way, url);
+    request.open(way, newUrl);
     request.setRequestHeader("Content-Type", "application/json");
     request.send(data);
     request.onreadystatechange = function () {
